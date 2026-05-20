@@ -23,12 +23,18 @@ Motor commands are published as a ROS2 `geometry_msgs/Point` message to `/object
 ## Repository Structure
 
 ```
-├── video_interface_node.py      # Main inference + control node (runs on Pi 5)
-├── video_interface.launch.py    # ROS2 launch file for the node
-├── savePerson2Follow.py         # Calibration: capture ReID embeddings of target
-├── calibrate_hsv.py             # Calibration: tune HSV thresholds for helmet colour
-├── test_detection.py            # Calibration: full visualisation of the 3-state logic
-└── README.md
+├── relbot_video_interface/                   # ROS2 package (runs on Pi 5)
+│   ├── relbot_video_interface/
+│   │   └── video_interface_node.py           # Main inference + control node
+│   └── launch/
+│       └── video_interface.launch.py         # ROS2 launch file
+│
+├── yolov8s_pose.hef                          # yolo pose model weights
+├── repvgg_a0_person_reid_512.hef             # reid model weights
+│
+├── savePerson2Follow.py                      # Calibration: capture ReID embeddings of target
+├── calibrate_hsv.py                          # Calibration: tune HSV thresholds for helmet colour
+└── test_detection.py                         # Calibration: visualise the full 3-state logic
 ```
 
 ---
